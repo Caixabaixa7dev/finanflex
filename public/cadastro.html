@@ -1,365 +1,453 @@
 <!DOCTYPE html>
 
-<html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;701;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "tertiary-container": "#6e2c00",
-              "secondary": "#006c49",
-              "on-secondary-fixed-variant": "#005236",
-              "on-secondary-fixed": "#002113",
-              "surface-container-low": "#f3f4f5",
-              "surface-bright": "#f8f9fa",
-              "error": "#ba1a1a",
-              "surface-container": "#edeeef",
-              "primary-fixed": "#dce1ff",
-              "primary": "#00236f",
-              "on-tertiary-container": "#f39461",
-              "on-tertiary-fixed": "#341100",
-              "on-primary-fixed": "#00164e",
-              "secondary-fixed": "#6ffbbe",
-              "on-tertiary": "#ffffff",
-              "on-secondary-container": "#00714d",
-              "on-primary-fixed-variant": "#264191",
-              "surface-variant": "#e1e3e4",
-              "surface": "#f8f9fa",
-              "primary-container": "#1e3a8a",
-              "inverse-on-surface": "#f0f1f2",
-              "surface-container-highest": "#e1e3e4",
-              "on-primary": "#ffffff",
-              "tertiary-fixed": "#ffdbcb",
-              "on-secondary": "#ffffff",
-              "surface-container-high": "#e7e8e9",
-              "error-container": "#ffdad6",
-              "on-error": "#ffffff",
-              "background": "#f8f9fa",
-              "surface-dim": "#d9dadb",
-              "on-primary-container": "#90a8ff",
-              "tertiary": "#4b1c00",
-              "primary-fixed-dim": "#b6c4ff",
-              "inverse-surface": "#2e3132",
-              "outline-variant": "#c5c5d3",
-              "on-surface-variant": "#444651",
-              "tertiary-fixed-dim": "#ffb691",
-              "secondary-container": "#6cf8bb",
-              "secondary-fixed-dim": "#4edea3",
-              "on-surface": "#191c1d",
-              "outline": "#757682",
-              "on-error-container": "#93000a",
-              "inverse-primary": "#b6c4ff",
-              "surface-container-lowest": "#ffffff",
-              "on-tertiary-fixed-variant": "#773205",
-              "surface-tint": "#4059aa",
-              "on-background": "#191c1d"
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;701;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#6e2c00",
+                        "secondary": "#006c49",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "surface-container": "#edeeef",
+                        "primary-fixed": "#dce1ff",
+                        "primary": "#00236f",
+                        "on-tertiary-container": "#f39461",
+                        "on-tertiary-fixed": "#341100",
+                        "on-primary-fixed": "#00164e",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#00714d",
+                        "on-primary-fixed-variant": "#264191",
+                        "surface-variant": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "primary-container": "#1e3a8a",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcb",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "background": "#f8f9fa",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-container": "#90a8ff",
+                        "tertiary": "#4b1c00",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "inverse-surface": "#2e3132",
+                        "outline-variant": "#c5c5d3",
+                        "on-surface-variant": "#444651",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "secondary-container": "#6cf8bb",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-surface": "#191c1d",
+                        "outline": "#757682",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b6c4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#773205",
+                        "surface-tint": "#4059aa",
+                        "on-background": "#191c1d"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
             },
-            fontFamily: {
-              "headline": ["Manrope"],
-              "body": ["Manrope"],
-              "label": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-          },
-        },
-      }
+        }
     </script>
-<style>
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             vertical-align: middle;
         }
+
         body {
             font-family: 'Manrope', sans-serif;
             background-color: #F8F9FA;
         }
+
         .architectural-shadow {
             box-shadow: 0 20px 40px rgba(25, 28, 29, 0.04);
         }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
 </head>
+
 <body class="bg-surface text-on-surface min-h-screen flex flex-col">
-<!-- Top Navigation (Suppressing full nav for focused onboarding) -->
-<header class="flex justify-center items-center w-full py-8 px-8">
-<div class="flex items-center gap-2"><img alt="Finanflex Logo" class="h-12 w-auto" src="/images/logo.png"/></div>
-</header>
-<main class="flex-grow flex items-center justify-center px-4 pb-20">
-<div class="w-full max-w-[600px] animate-fade-in">
-<!-- Registration Card -->
-<div class="bg-surface-container-lowest rounded-xl architectural-shadow p-8 md:p-12 relative overflow-hidden">
-<!-- Subtle Background Glow (The Financial Glow) -->
-<div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary-container opacity-10 rounded-full blur-3xl"></div>
-<div class="relative z-10">
-<!-- Progress Bar Component -->
-<div class="flex items-center justify-between mb-10">
-<div class="w-full h-1.5 bg-surface-container rounded-full flex overflow-hidden">
-<div class="w-1/2 h-full bg-surface-container-highest"></div>
-<div class="w-1/2 h-full bg-secondary"></div>
-</div>
-<span class="ml-4 font-label text-[10px] uppercase tracking-[0.05em] font-bold text-outline">Etapa 2 de 2</span>
-</div>
-<!-- Header Section -->
-<div class="mb-10 text-center md:text-left">
-<h2 class="font-headline text-2xl md:text-3xl font-extrabold text-primary tracking-tight mb-3">Quase lá! Falta pouco.</h2>
-<p class="font-body text-on-surface-variant leading-relaxed opacity-80">Crie sua conta rapidinho para ver as opções de parcelamento no Pix.</p>
-</div>
-<!-- Registration Form -->
-<form id="cadastroForm" class="space-y-6">
-<div class="space-y-1.5">
-<label class="block font-label text-[10px] uppercase tracking-[0.1em] font-bold text-primary ml-1">Nome Completo</label>
-<input id="inputNome" required class="w-full bg-surface-container-high border-none rounded-lg px-4 py-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all outline-none" placeholder="Como quer ser chamado?" type="text"/>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="space-y-1.5">
-<label class="block font-label text-[10px] uppercase tracking-[0.1em] font-bold text-primary ml-1">CPF</label>
-<input id="inputCpf" required class="w-full bg-surface-container-high border-none rounded-lg px-4 py-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all outline-none" placeholder="000.000.000-00" type="text"/>
-</div>
-<div class="space-y-1.5">
-<label class="block font-label text-[10px] uppercase tracking-[0.1em] font-bold text-primary ml-1">WhatsApp</label>
-<input id="inputWhats" required class="w-full bg-surface-container-high border-none rounded-lg px-4 py-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all outline-none" placeholder="(00) 00000-0000" type="tel"/>
-</div>
-</div>
-<div class="space-y-1.5">
-<label class="block font-label text-[10px] uppercase tracking-[0.1em] font-bold text-primary ml-1">Crie uma Senha</label>
-<div class="relative">
-<input id="inputSenha" required class="w-full bg-surface-container-high border-none rounded-lg px-4 py-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all outline-none" placeholder="Mínimo 6 caracteres" type="password"/>
-<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
-</button>
-</div>
-</div>
-<div class="pt-6">
-<button class="w-full bg-secondary text-on-secondary font-headline font-bold py-5 rounded-full flex items-center justify-center gap-3 hover:bg-on-secondary-fixed-variant transition-all transform active:scale-[0.98] shadow-lg shadow-secondary/10" type="submit">
+    <!-- Top Navigation (Suppressing full nav for focused onboarding) -->
+    <header class="flex justify-center items-center w-full py-8 px-8">
+        <div class="flex items-center gap-2"><img alt="Finanflex Logo" class="h-20 w-auto" src="/images/logo.png" />
+        </div>
+    </header>
+    <main class="flex-grow flex items-center justify-center px-4 pb-20">
+        <div class="w-full max-w-[600px] animate-fade-in">
+            <!-- Registration Card -->
+            <div
+                class="bg-surface-container-lowest rounded-xl architectural-shadow p-8 md:p-12 relative overflow-hidden">
+                <!-- Subtle Background Glow (The Financial Glow) -->
+                <div
+                    class="absolute -top-24 -right-24 w-64 h-64 bg-secondary-container opacity-10 rounded-full blur-3xl">
+                </div>
+                <div class="relative z-10">
+                    <!-- Progress Bar Component -->
+                    <div class="flex items-center justify-between mb-10">
+                        <div class="w-full h-1.5 bg-surface-container rounded-full flex overflow-hidden">
+                            <div class="w-1/2 h-full bg-surface-container-highest"></div>
+                            <div class="w-1/2 h-full bg-secondary"></div>
+                        </div>
+                        <span
+                            class="ml-4 font-label text-[10px] uppercase tracking-[0.05em] font-bold text-outline">Etapa
+                            2 de 2</span>
+                    </div>
+                    <!-- Header Section -->
+                    <div class="mb-10 text-center md:text-left">
+                        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-primary tracking-tight mb-3">
+                            Quase lá! Falta pouco.</h2>
+                        <p class="font-body text-on-surface-variant leading-relaxed opacity-80">Crie sua conta rapidinho
+                            para ver as opções de parcelamento no Pix.</p>
+                    </div>
+                    <!-- Registration Form -->
+                    <form id="cadastroForm" class="space-y-6">
+                        <div class="space-y-1.5">
+                            <label
+                                class="block font-label text-[10px] uppercase tracking-[0.1em] font-bold text-primary ml-1">Nome
+                                Completo</label>
+                            <input id="inputNome" required
+                                class="w-full bg-surface-container-high border-none rounded-lg px-4 py-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all outline-none"
+                                placeholder="Como quer ser chamado?" type="text" />
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-1.5">
+                                <label
+                                    class="block font-label text-[10px] uppercase tracking-[0.1em] font-bold text-primary ml-1">CPF</label>
+                                <input id="inputCpf" required
+                                    class="w-full bg-surface-container-high border-none rounded-lg px-4 py-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all outline-none"
+                                    placeholder="000.000.000-00" type="text" />
+                            </div>
+                            <div class="space-y-1.5">
+                                <label
+                                    class="block font-label text-[10px] uppercase tracking-[0.1em] font-bold text-primary ml-1">WhatsApp</label>
+                                <input id="inputWhats" required
+                                    class="w-full bg-surface-container-high border-none rounded-lg px-4 py-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all outline-none"
+                                    placeholder="(00) 00000-0000" type="tel" />
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <label
+                                class="block font-label text-[10px] uppercase tracking-[0.1em] font-bold text-primary ml-1">Crie
+                                uma Senha</label>
+                            <div class="relative">
+                                <input id="inputSenha" required
+                                    class="w-full bg-surface-container-high border-none rounded-lg px-4 py-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all outline-none"
+                                    placeholder="Mínimo 6 caracteres" type="password" />
+                                <button
+                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors"
+                                    type="button">
+                                    <span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="pt-6">
+                            <button
+                                class="w-full bg-secondary text-on-secondary font-headline font-bold py-5 rounded-full flex items-center justify-center gap-3 hover:bg-on-secondary-fixed-variant transition-all transform active:scale-[0.98] shadow-lg shadow-secondary/10"
+                                type="submit">
                                 Ver Opções de Parcelamento
                                 <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
-</form>
-<!-- Security Note -->
-<div class="mt-8 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-outline text-sm" data-icon="lock">lock</span>
-<p class="font-body text-[11px] text-outline font-medium">Seus dados são criptografados e protegidos.</p>
-</div>
-</div>
-</div>
-<!-- Contextual Social Proof / Info -->
-<div class="mt-8 text-center">
-<p class="font-label text-[10px] uppercase tracking-[0.05em] text-outline">Precisa de ajuda?</p>
-<a class="font-body text-xs font-semibold text-primary-container hover:underline mt-1 inline-block" href="#">Falar com um consultor Finanflex</a>
-</div>
-</div>
-</main>
-<!-- Footer Component -->
-<footer class="flex flex-col items-center gap-2 pb-8 w-full mt-auto">
-<p class="font-label text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400">© 2024 Finanflex. Secured Editorial Ledger.</p>
-<div class="flex gap-6">
-<a class="font-label text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors" href="#">Privacy</a>
-<a class="font-label text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors" href="#">Terms</a>
-<a class="font-label text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors" href="#">Help</a>
-</div>
-</footer>
-
-<!-- =============================== -->
-<!-- CHECKOUT & PIX MODAL (EMBEDDED) -->
-<!-- =============================== -->
-<style>
-input[type='radio'] { accent-color: #006c49; }
-.spinner { width: 30px; height: 30px; border: 3px solid #E5E7EB; border-top-color: #006c49; border-radius: 50%; animation: spin 1s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
-</style>
-<div id="checkoutModalOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-surface-variant/80 backdrop-blur-md hidden transition-opacity duration-300 opacity-0 p-4">
-<!-- Step 1: Installments View -->
-<div id="installmentsView" class="bg-surface-container-lowest rounded-3xl p-8 max-w-md w-full relative shadow-[0_20px_40px_rgba(25,28,29,0.04)] border border-outline-variant/15 transform scale-95 transition-transform duration-300">
-    <button class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors" type="button" onclick="closeCheckoutModal()">
-    <span class="material-symbols-outlined">close</span>
-    </button>
-    
-    <h2 class="text-2xl font-bold text-primary mb-6 font-headline">Resumo e Simulador</h2>
-    
-    <!-- Mocked Bill Info -->
-    <div class="mb-6 p-4 rounded-2xl bg-surface-tint/5 border border-outline-variant/20">
-    <div class="flex justify-between items-center mb-1">
-        <span class="text-on-surface-variant font-medium text-sm">Boleto a Liquidar:</span>
-        <strong id="modalBoletoValue" class="text-2xl text-primary font-headline">R$ 0,00</strong>
-    </div>
-    <p id="modalBoletoEmpresa" class="text-[10px] text-on-surface-variant opacity-80 uppercase tracking-widest font-bold">Boleto Bancário</p>
-    </div>
-
-    <h3 class="font-bold font-label text-[10px] uppercase tracking-[0.1em] text-primary ml-1 mb-4">Escolha o Parcelamento (Pix)</h3>
-    <div class="flex flex-col gap-3 mb-6">
-    <label class="flex items-center p-4 border border-outline-variant/30 rounded-2xl cursor-pointer hover:border-secondary hover:bg-secondary-container/10 transition">
-        <input type="radio" name="installment" value="1" class="w-5 h-5 mr-4" checked>
-        <div class="flex flex-col">
-        <span id="opt1_lbl" class="font-bold text-primary text-lg">1x de R$ 0,00</span>
-        <span id="opt1_sub" class="text-xs font-bold text-[#10B981] mt-0.5">Ganhe R$ 0,00 (10%) de Cashback!</span>
+                            </button>
+                        </div>
+                    </form>
+                    <!-- Security Note -->
+                    <div class="mt-8 flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-outline text-sm" data-icon="lock">lock</span>
+                        <p class="font-body text-[11px] text-outline font-medium">Seus dados são criptografados e
+                            protegidos.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Contextual Social Proof / Info -->
+            <div class="mt-8 text-center">
+                <p class="font-label text-[10px] uppercase tracking-[0.05em] text-outline">Precisa de ajuda?</p>
+                <a class="font-body text-xs font-semibold text-primary-container hover:underline mt-1 inline-block"
+                    href="#">Falar com um consultor Finanflex</a>
+            </div>
         </div>
-    </label>
-
-    <label class="flex items-center p-4 border border-outline-variant/30 rounded-2xl cursor-pointer hover:border-secondary hover:bg-secondary-container/10 transition">
-        <input type="radio" name="installment" value="2" class="w-5 h-5 mr-4">
-        <div class="flex flex-col">
-        <span id="opt2_lbl" class="font-bold text-primary text-lg">2x de R$ 0,00</span>
-        <span id="opt2_sub" class="text-xs text-on-surface-variant">Total: R$ 0,00 (Taxas inclusas)</span>
+    </main>
+    <!-- Footer Component -->
+    <footer class="flex flex-col items-center gap-2 pb-8 w-full mt-auto">
+        <p class="font-label text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400">© 2024 Finanflex.
+            Secured Editorial Ledger.</p>
+        <div class="flex gap-6">
+            <a class="font-label text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors"
+                href="#">Privacy</a>
+            <a class="font-label text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors"
+                href="#">Terms</a>
+            <a class="font-label text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors"
+                href="#">Help</a>
         </div>
-    </label>
+    </footer>
 
-    <label class="flex items-center p-4 border border-outline-variant/30 rounded-2xl cursor-pointer hover:border-secondary hover:bg-secondary-container/10 transition">
-        <input type="radio" name="installment" value="3" class="w-5 h-5 mr-4">
-        <div class="flex flex-col">
-        <span id="opt3_lbl" class="font-bold text-primary text-lg">3x de R$ 0,00</span>
-        <span id="opt3_sub" class="text-xs text-on-surface-variant">Total: R$ 0,00 (Taxas inclusas)</span>
+    <!-- =============================== -->
+    <!-- CHECKOUT & PIX MODAL (EMBEDDED) -->
+    <!-- =============================== -->
+    <style>
+        input[type='radio'] {
+            accent-color: #006c49;
+        }
+
+        .spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #E5E7EB;
+            border-top-color: #006c49;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <div id="checkoutModalOverlay"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-surface-variant/80 backdrop-blur-md hidden transition-opacity duration-300 opacity-0 p-4">
+        <!-- Step 1: Installments View -->
+        <div id="installmentsView"
+            class="bg-surface-container-lowest rounded-3xl p-8 max-w-md w-full relative shadow-[0_20px_40px_rgba(25,28,29,0.04)] border border-outline-variant/15 transform scale-95 transition-transform duration-300">
+            <button class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors"
+                type="button" onclick="closeCheckoutModal()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <h2 class="text-2xl font-bold text-primary mb-6 font-headline">Resumo e Simulador</h2>
+
+            <!-- Mocked Bill Info -->
+            <div class="mb-6 p-4 rounded-2xl bg-surface-tint/5 border border-outline-variant/20">
+                <div class="flex justify-between items-center mb-1">
+                    <span class="text-on-surface-variant font-medium text-sm">Boleto a Liquidar:</span>
+                    <strong id="modalBoletoValue" class="text-2xl text-primary font-headline">R$ 0,00</strong>
+                </div>
+                <p id="modalBoletoEmpresa"
+                    class="text-[10px] text-on-surface-variant opacity-80 uppercase tracking-widest font-bold">Boleto
+                    Bancário</p>
+            </div>
+
+            <h3 class="font-bold font-label text-[10px] uppercase tracking-[0.1em] text-primary ml-1 mb-4">Escolha o
+                Parcelamento (Pix)</h3>
+            <div class="flex flex-col gap-3 mb-6">
+                <label
+                    class="flex items-center p-4 border border-outline-variant/30 rounded-2xl cursor-pointer hover:border-secondary hover:bg-secondary-container/10 transition">
+                    <input type="radio" name="installment" value="1" class="w-5 h-5 mr-4" checked>
+                    <div class="flex flex-col">
+                        <span id="opt1_lbl" class="font-bold text-primary text-lg">1x de R$ 0,00</span>
+                        <span id="opt1_sub" class="text-xs font-bold text-[#10B981] mt-0.5">Ganhe R$ 0,00 (10%) de
+                            Cashback!</span>
+                    </div>
+                </label>
+
+                <label
+                    class="flex items-center p-4 border border-outline-variant/30 rounded-2xl cursor-pointer hover:border-secondary hover:bg-secondary-container/10 transition">
+                    <input type="radio" name="installment" value="2" class="w-5 h-5 mr-4">
+                    <div class="flex flex-col">
+                        <span id="opt2_lbl" class="font-bold text-primary text-lg">2x de R$ 0,00</span>
+                        <span id="opt2_sub" class="text-xs text-on-surface-variant">Total: R$ 0,00 (Taxas
+                            inclusas)</span>
+                    </div>
+                </label>
+
+                <label
+                    class="flex items-center p-4 border border-outline-variant/30 rounded-2xl cursor-pointer hover:border-secondary hover:bg-secondary-container/10 transition">
+                    <input type="radio" name="installment" value="3" class="w-5 h-5 mr-4">
+                    <div class="flex flex-col">
+                        <span id="opt3_lbl" class="font-bold text-primary text-lg">3x de R$ 0,00</span>
+                        <span id="opt3_sub" class="text-xs text-on-surface-variant">Total: R$ 0,00 (Taxas
+                            inclusas)</span>
+                    </div>
+                </label>
+
+                <label
+                    class="flex items-center p-4 border border-outline-variant/30 rounded-2xl cursor-pointer hover:border-secondary hover:bg-secondary-container/10 transition">
+                    <input type="radio" name="installment" value="4" class="w-5 h-5 mr-4">
+                    <div class="flex flex-col">
+                        <span id="opt4_lbl" class="font-bold text-primary text-lg">4x de R$ 0,00</span>
+                        <span id="opt4_sub" class="text-xs text-on-surface-variant">Total: R$ 0,00 (Taxas
+                            inclusas)</span>
+                    </div>
+                </label>
+            </div>
+
+            <label class="flex items-start gap-3 mb-8 cursor-pointer group">
+                <input type="checkbox" id="consentCheckbox"
+                    class="mt-1 w-5 h-5 rounded border-outline-variant/50 text-secondary cursor-pointer" required>
+                <span
+                    class="text-[11px] font-medium text-on-surface-variant group-hover:text-primary transition-colors">
+                    Aceito a tarifa de parcelamento e os <a href="#" class="font-bold underline text-primary">Termos do
+                        Contrato</a>.
+                </span>
+            </label>
+
+            <button type="button" onclick="proceedToPixView()"
+                class="w-full bg-secondary text-white py-4 rounded-full font-bold text-lg hover:bg-on-secondary-fixed-variant transition-all transform active:scale-[0.98] shadow-lg shadow-secondary/10 flex items-center justify-center gap-2">
+                Gerar Chave Pix
+                <span class="material-symbols-outlined text-xl">payments</span>
+            </button>
         </div>
-    </label>
 
-    <label class="flex items-center p-4 border border-outline-variant/30 rounded-2xl cursor-pointer hover:border-secondary hover:bg-secondary-container/10 transition">
-        <input type="radio" name="installment" value="4" class="w-5 h-5 mr-4">
-        <div class="flex flex-col">
-        <span id="opt4_lbl" class="font-bold text-primary text-lg">4x de R$ 0,00</span>
-        <span id="opt4_sub" class="text-xs text-on-surface-variant">Total: R$ 0,00 (Taxas inclusas)</span>
+        <!-- Step 2: PIX Checkout View -->
+        <div id="pixView"
+            class="bg-surface-container-lowest rounded-3xl p-8 max-w-md w-full relative shadow-[0_20px_40px_rgba(25,28,29,0.04)] border border-outline-variant/15 hidden transform scale-95 transition-transform duration-300">
+            <button class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors"
+                type="button" onclick="closeCheckoutModal()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <h2 class="text-2xl font-bold text-primary mb-2 font-headline text-center">Pague sua 1ª Parcela</h2>
+            <p class="text-sm font-medium text-on-surface-variant text-center mb-6">Escaneie o QR Code ou cole a chave
+                no seu app bancário.</p>
+
+            <div
+                class="flex justify-center mb-6 bg-surface-container-low p-4 rounded-2xl mx-auto w-fit border border-outline-variant/20 shadow-inner">
+                <img id="qrCodeImg"
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020101021226580014BR.GOV.BCB.PIX..."
+                    alt="QR Code Pix" class="w-48 h-48 rounded-xl object-contain" />
+            </div>
+
+            <div class="relative mb-6">
+                <input type="text" id="pixCodeInput" value="00020101021226580014BR.GOV.BCB.PIX..."
+                    class="w-full pl-4 pr-12 py-3 bg-surface-container-low border border-outline-variant/30 rounded-xl font-mono text-xs text-on-surface-variant text-center focus:outline-none"
+                    readonly>
+                <button type="button" onclick="handleCopyPix()"
+                    class="absolute right-2 top-1/2 -translate-y-1/2 text-secondary hover:text-on-secondary-fixed-variant p-1 bg-secondary-container/20 rounded-lg">
+                    <span class="material-symbols-outlined text-xl">content_copy</span>
+                </button>
+            </div>
+
+            <div id="loadingStatus" class="flex flex-col items-center gap-3">
+                <div class="spinner"></div>
+                <span class="text-sm font-semibold text-primary/70 animate-pulse">Aguardando confirmação do
+                    Pix...</span>
+            </div>
+
+            <div id="successMessage"
+                class="hidden flex flex-col items-center justify-center gap-3 bg-secondary-container/20 border border-secondary p-4 rounded-xl">
+                <span class="material-symbols-outlined text-secondary text-5xl">verified</span>
+                <span class="text-secondary font-bold text-center">Pagamento Concluído!</span>
+            </div>
         </div>
-    </label>
     </div>
 
-    <label class="flex items-start gap-3 mb-8 cursor-pointer group">
-    <input type="checkbox" id="consentCheckbox" class="mt-1 w-5 h-5 rounded border-outline-variant/50 text-secondary cursor-pointer" required>
-    <span class="text-[11px] font-medium text-on-surface-variant group-hover:text-primary transition-colors">
-        Aceito a tarifa de parcelamento e os <a href="#" class="font-bold underline text-primary">Termos do Contrato</a>.
-    </span>
-    </label>
+    <script src="/js/app.js"></script>
+    <script>
+        document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-    <button type="button" onclick="proceedToPixView()" class="w-full bg-secondary text-white py-4 rounded-full font-bold text-lg hover:bg-on-secondary-fixed-variant transition-all transform active:scale-[0.98] shadow-lg shadow-secondary/10 flex items-center justify-center gap-2">
-    Gerar Chave Pix 
-    <span class="material-symbols-outlined text-xl">payments</span>
-    </button>
-</div>
+            const nome = document.getElementById('inputNome').value;
+            const cpf = document.getElementById('inputCpf').value;
+            const telefone = document.getElementById('inputWhats').value;
+            const senha = document.getElementById('inputSenha').value;
 
-<!-- Step 2: PIX Checkout View -->
-<div id="pixView" class="bg-surface-container-lowest rounded-3xl p-8 max-w-md w-full relative shadow-[0_20px_40px_rgba(25,28,29,0.04)] border border-outline-variant/15 hidden transform scale-95 transition-transform duration-300">
-    <button class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors" type="button" onclick="closeCheckoutModal()">
-        <span class="material-symbols-outlined">close</span>
-    </button>
-    
-    <h2 class="text-2xl font-bold text-primary mb-2 font-headline text-center">Pague sua 1ª Parcela</h2>
-    <p class="text-sm font-medium text-on-surface-variant text-center mb-6">Escaneie o QR Code ou cole a chave no seu app bancário.</p>
+            const btn = e.target.querySelector('button[type="submit"]');
+            const origText = btn.innerHTML;
+            btn.innerHTML = 'Processando...';
+            btn.disabled = true;
 
-    <div class="flex justify-center mb-6 bg-surface-container-low p-4 rounded-2xl mx-auto w-fit border border-outline-variant/20 shadow-inner">
-        <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020101021226580014BR.GOV.BCB.PIX..." alt="QR Code Pix" class="w-48 h-48 rounded-xl object-contain"/>
-    </div>
+            try {
+                const res = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nome, cpf, whatsapp: telefone, senha })
+                });
+                const data = await res.json();
 
-    <div class="relative mb-6">
-        <input type="text" id="pixCodeInput" value="00020101021226580014BR.GOV.BCB.PIX..." class="w-full pl-4 pr-12 py-3 bg-surface-container-low border border-outline-variant/30 rounded-xl font-mono text-xs text-on-surface-variant text-center focus:outline-none" readonly>
-        <button type="button" onclick="handleCopyPix()" class="absolute right-2 top-1/2 -translate-y-1/2 text-secondary hover:text-on-secondary-fixed-variant p-1 bg-secondary-container/20 rounded-lg">
-            <span class="material-symbols-outlined text-xl">content_copy</span>
-        </button>
-    </div>
+                // Se retornar 409 CPF já cadastrado, vamos tentar fazer o login automático
+                if (res.status === 409 || (data.error && data.error.includes('já cadastrado'))) {
+                    const loginRes = await fetch('/api/auth/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ cpf, senha })
+                    });
+                    const loginData = await loginRes.json();
+                    if (loginRes.ok) {
+                        localStorage.setItem('finanflex_token', loginData.token);
+                    } else {
+                        return alert("Credenciais inválidas para o CPF já existente. Tente logar.");
+                    }
+                } else if (res.ok) {
+                    localStorage.setItem('finanflex_token', data.token);
+                } else {
+                    return alert("Erro ao criar conta: " + (data.error || 'Desconhecido'));
+                }
 
-    <div id="loadingStatus" class="flex flex-col items-center gap-3">
-        <div class="spinner"></div>
-        <span class="text-sm font-semibold text-primary/70 animate-pulse">Aguardando confirmação do Pix...</span>
-    </div>
+                // Se chegou aqui, temos o Token no localStorage e usuário ativo
+                if (localStorage.getItem('finanflex_token')) {
+                    // Sucesso ou já existe
+                    if (localStorage.getItem('finanflex_boleto')) {
+                        const valorStr = localStorage.getItem('finanflex_valor');
+                        const valorOriginal = valorStr ? parseFloat(valorStr) : 0;
+                        const empresa = localStorage.getItem('finanflex_empresa') || 'Boleto Bancário';
 
-    <div id="successMessage" class="hidden flex flex-col items-center justify-center gap-3 bg-secondary-container/20 border border-secondary p-4 rounded-xl">
-        <span class="material-symbols-outlined text-secondary text-5xl">verified</span>
-        <span class="text-secondary font-bold text-center">Pagamento Concluído!</span>
-    </div>
-</div>
-</div>
+                        const formatter = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
 
-<script src="/js/app.js"></script>
-<script>
-document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const nome = document.getElementById('inputNome').value;
-    const cpf = document.getElementById('inputCpf').value;
-    const telefone = document.getElementById('inputWhats').value;
-    const senha = document.getElementById('inputSenha').value;
+                        document.getElementById('modalBoletoValue').innerText = formatter.format(valorOriginal);
+                        document.getElementById('modalBoletoEmpresa').innerText = empresa;
 
-    const btn = e.target.querySelector('button[type="submit"]');
-    const origText = btn.innerHTML;
-    btn.innerHTML = 'Processando...';
-    btn.disabled = true;
+                        const baseTax = 1.11;
+                        const opt1Total = valorOriginal * 0.90;
 
-    try {
-        const res = await fetch('/api/auth/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nome, cpf, whatsapp: telefone, senha })
+                        const opt2Total = valorOriginal * Math.pow(baseTax, 2);
+                        const opt3Total = valorOriginal * Math.pow(baseTax, 3);
+                        const opt4Total = valorOriginal * Math.pow(baseTax, 4);
+
+                        document.getElementById('opt1_lbl').innerText = `1x de ${formatter.format(opt1Total)}`;
+                        document.getElementById('opt1_sub').innerText = `Cashback de 10% aplicado (Desconto Direto)!`;
+
+                        document.getElementById('opt2_lbl').innerText = `2x de ${formatter.format(opt2Total / 2)}`;
+                        document.getElementById('opt2_sub').innerText = `Total: ${formatter.format(opt2Total)} (Taxas inclusas)`;
+
+                        document.getElementById('opt3_lbl').innerText = `3x de ${formatter.format(opt3Total / 3)}`;
+                        document.getElementById('opt3_sub').innerText = `Total: ${formatter.format(opt3Total)} (Taxas inclusas)`;
+
+                        document.getElementById('opt4_lbl').innerText = `4x de ${formatter.format(opt4Total / 4)}`;
+                        document.getElementById('opt4_sub').innerText = `Total: ${formatter.format(opt4Total)} (Taxas inclusas)`;
+                    }
+                    openCheckoutModal();
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Erro de comunicação com o servidor.");
+            } finally {
+                btn.innerHTML = origText;
+                btn.disabled = false;
+            }
         });
-        const data = await res.json();
-        
-        // Se retornar 409 CPF já cadastrado, vamos tentar fazer o login automático
-        if(res.status === 409 || (data.error && data.error.includes('já cadastrado'))) {
-            const loginRes = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ cpf, senha })
-            });
-            const loginData = await loginRes.json();
-            if(loginRes.ok) {
-                localStorage.setItem('finanflex_token', loginData.token);
-            } else {
-                return alert("Credenciais inválidas para o CPF já existente. Tente logar.");
-            }
-        } else if (res.ok) {
-            localStorage.setItem('finanflex_token', data.token);
-        } else {
-            return alert("Erro ao criar conta: " + (data.error || 'Desconhecido'));
-        }
+    </script>
+</body>
 
-        // Se chegou aqui, temos o Token no localStorage e usuário ativo
-        if(localStorage.getItem('finanflex_token')) {
-            // Sucesso ou já existe
-            if(localStorage.getItem('finanflex_boleto')) {
-                const valorStr = localStorage.getItem('finanflex_valor');
-                const valorOriginal = valorStr ? parseFloat(valorStr) : 0;
-                const empresa = localStorage.getItem('finanflex_empresa') || 'Boleto Bancário';
-                
-                const formatter = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
-                
-                document.getElementById('modalBoletoValue').innerText = formatter.format(valorOriginal);
-                document.getElementById('modalBoletoEmpresa').innerText = empresa;
-                
-                const baseTax = 1.11;
-                const opt1Total = valorOriginal * 0.90; 
-                
-                const opt2Total = valorOriginal * Math.pow(baseTax, 2);
-                const opt3Total = valorOriginal * Math.pow(baseTax, 3);
-                const opt4Total = valorOriginal * Math.pow(baseTax, 4);
-
-                document.getElementById('opt1_lbl').innerText = `1x de ${formatter.format(opt1Total)}`;
-                document.getElementById('opt1_sub').innerText = `Cashback de 10% aplicado (Desconto Direto)!`;
-                
-                document.getElementById('opt2_lbl').innerText = `2x de ${formatter.format(opt2Total / 2)}`;
-                document.getElementById('opt2_sub').innerText = `Total: ${formatter.format(opt2Total)} (Taxas inclusas)`;
-                
-                document.getElementById('opt3_lbl').innerText = `3x de ${formatter.format(opt3Total / 3)}`;
-                document.getElementById('opt3_sub').innerText = `Total: ${formatter.format(opt3Total)} (Taxas inclusas)`;
-                
-                document.getElementById('opt4_lbl').innerText = `4x de ${formatter.format(opt4Total / 4)}`;
-                document.getElementById('opt4_sub').innerText = `Total: ${formatter.format(opt4Total)} (Taxas inclusas)`;
-            }
-            openCheckoutModal();
-        }
-    } catch(err) {
-        console.error(err);
-        alert("Erro de comunicação com o servidor.");
-    } finally {
-        btn.innerHTML = origText;
-        btn.disabled = false;
-    }
-});
-</script>
-</body></html>
+</html>

@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 
-<html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Finanflex | Captura do Boleto</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Finanflex | Captura do Boleto</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
         body {
             font-family: 'Manrope', sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -76,292 +82,321 @@
                         "body": ["Manrope"],
                         "label": ["Manrope"]
                     },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
             },
         }
     </script>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
 </head>
-<body class="bg-surface text-on-surface min-h-screen flex flex-col">
-<!-- Top Navigation Suppression: Not rendered for transactional/onboarding screen per rules -->
-<!-- Minimal Header -->
-<header class="w-full py-8 px-6 flex justify-center items-center">
-<div class="flex items-center gap-2"><img alt="Finanflex Logo" class="h-12 w-auto object-contain" src="/images/logo.png"/></div>
-</header>
-<!-- Main Content Canvas -->
-<main class="flex-grow flex items-start justify-center px-4 pt-4 pb-20">
-<div class="w-full max-w-[600px] bg-surface-container-low rounded-xl p-0.5">
-<!-- Elevated Content Card -->
-<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(25,28,29,0.04)]">
-<!-- Progress Indicator -->
-<div class="mb-10">
-<div class="flex justify-between items-center mb-2">
-<span class="text-[10px] uppercase tracking-[0.05em] font-bold text-outline">Passo 1 de 2</span>
-<span class="text-[10px] uppercase tracking-[0.05em] font-bold text-primary">Início</span>
-</div>
-<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
-<div class="h-full w-1/2 bg-primary-container rounded-full"></div>
-</div>
-</div>
-<!-- Headline & Intro -->
-<div class="mb-10 text-center">
-<h1 class="text-2xl md:text-3xl font-extrabold text-primary tracking-tight mb-4">Qual boleto vamos parcelar hoje?</h1>
-<p class="text-on-surface-variant leading-relaxed font-medium">Cole a linha digitável ou escaneie o código de barras.</p>
-</div>
-<!-- Form Section -->
-<div class="space-y-8">
-<div class="relative">
-<label class="absolute left-4 bg-surface-container-lowest px-1 text-[10px] font-bold uppercase tracking-wider text-outline -top-4" for="barcode">Linha Digitável</label>
-<div class="relative flex items-center">
-<span class="material-symbols-outlined absolute left-4 text-outline">barcode</span>
-<input class="w-full pl-12 pr-4 py-4 bg-surface-container-high border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all text-on-surface font-medium placeholder:text-outline/50" id="barcode" name="barcode" placeholder="00000.00000 00000.000000..." type="text"/>
-</div>
-<p id="error15k" class="hidden text-red-500 text-[11px] font-bold mt-2 ml-1">O valor excedeu o limite máximo de R$ 15.000,00.</p>
-</div>
-            <!-- Divider -->
-            <div class="relative flex items-center py-2">
-                <div class="flex-grow border-t border-outline-variant/30"></div>
-                <span class="flex-shrink mx-4 text-[10px] font-black text-outline tracking-widest">OU</span>
-                <div class="flex-grow border-t border-outline-variant/30"></div>
-            </div>
 
-            <!-- Camera Action -->
-            <button type="button" onclick="iniciarScannerBoleto()" class="w-full flex items-center justify-center gap-3 py-4 px-6 border-2 border-outline-variant/20 rounded-full text-primary font-bold hover:bg-surface-container-low transition-colors group">
-                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">photo_camera</span>
-                <span>Escanear com a Câmera</span>
-            </button>
-            
-            <!-- Toque de UX: Info Block -->
-            <div id="boletoInfo" class="hidden mt-6 p-6 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-sm">
-                <h3 class="font-bold text-primary mb-2 text-sm uppercase tracking-wider">Boleto Lido: <span id="lblTipo" class="text-on-surface">Boleto Bancário</span></h3>
-                <p class="text-sm font-medium mb-1">Valor: <strong id="lblValor" class="text-primary text-xl">R$ 0,00</strong></p>
-                <p class="text-sm text-on-surface-variant font-medium mb-4">Vencimento: <strong id="lblVencimento" class="text-on-surface">00/00/0000</strong></p>
-                
-                <div class="space-y-1.5 mt-4">
-                    <label class="block font-label text-[10px] uppercase tracking-[0.1em] font-bold text-primary ml-1">De qual empresa é esta conta? (Opcional)</label>
-                    <input id="inputEmpresa" class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all outline-none" placeholder="Ex: Enel, Vivo, Condomínio" type="text"/>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+    <!-- Top Navigation Suppression: Not rendered for transactional/onboarding screen per rules -->
+    <!-- Minimal Header -->
+    <header class="w-full py-8 px-6 flex justify-center items-center">
+        <div class="flex items-center gap-2"><img alt="Finanflex Logo" class="h-20 w-auto object-contain"
+                src="/images/logo.png" /></div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="flex-grow flex items-start justify-center px-4 pt-4 pb-20">
+        <div class="w-full max-w-[600px] bg-surface-container-low rounded-xl p-0.5">
+            <!-- Elevated Content Card -->
+            <div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(25,28,29,0.04)]">
+                <!-- Progress Indicator -->
+                <div class="mb-10">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-[10px] uppercase tracking-[0.05em] font-bold text-outline">Passo 1 de 2</span>
+                        <span class="text-[10px] uppercase tracking-[0.05em] font-bold text-primary">Início</span>
+                    </div>
+                    <div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+                        <div class="h-full w-1/2 bg-primary-container rounded-full"></div>
+                    </div>
+                </div>
+                <!-- Headline & Intro -->
+                <div class="mb-10 text-center">
+                    <h1 class="text-2xl md:text-3xl font-extrabold text-primary tracking-tight mb-4">Qual boleto vamos
+                        parcelar hoje?</h1>
+                    <p class="text-on-surface-variant leading-relaxed font-medium">Cole a linha digitável ou escaneie o
+                        código de barras.</p>
+                </div>
+                <!-- Form Section -->
+                <div class="space-y-8">
+                    <div class="relative">
+                        <label
+                            class="absolute left-4 bg-surface-container-lowest px-1 text-[10px] font-bold uppercase tracking-wider text-outline -top-4"
+                            for="barcode">Linha Digitável</label>
+                        <div class="relative flex items-center">
+                            <span class="material-symbols-outlined absolute left-4 text-outline">barcode</span>
+                            <input
+                                class="w-full pl-12 pr-4 py-4 bg-surface-container-high border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all text-on-surface font-medium placeholder:text-outline/50"
+                                id="barcode" name="barcode" placeholder="00000.00000 00000.000000..." type="text" />
+                        </div>
+                        <p id="error15k" class="hidden text-red-500 text-[11px] font-bold mt-2 ml-1">O valor excedeu o
+                            limite máximo de R$ 15.000,00.</p>
+                    </div>
+                    <!-- Divider -->
+                    <div class="relative flex items-center py-2">
+                        <div class="flex-grow border-t border-outline-variant/30"></div>
+                        <span class="flex-shrink mx-4 text-[10px] font-black text-outline tracking-widest">OU</span>
+                        <div class="flex-grow border-t border-outline-variant/30"></div>
+                    </div>
+
+                    <!-- Camera Action -->
+                    <button type="button" onclick="iniciarScannerBoleto()"
+                        class="w-full flex items-center justify-center gap-3 py-4 px-6 border-2 border-outline-variant/20 rounded-full text-primary font-bold hover:bg-surface-container-low transition-colors group">
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">photo_camera</span>
+                        <span>Escanear com a Câmera</span>
+                    </button>
+
+                    <!-- Toque de UX: Info Block -->
+                    <div id="boletoInfo"
+                        class="hidden mt-6 p-6 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-sm">
+                        <h3 class="font-bold text-primary mb-2 text-sm uppercase tracking-wider">Boleto Lido: <span
+                                id="lblTipo" class="text-on-surface">Boleto Bancário</span></h3>
+                        <p class="text-sm font-medium mb-1">Valor: <strong id="lblValor" class="text-primary text-xl">R$
+                                0,00</strong></p>
+                        <p class="text-sm text-on-surface-variant font-medium mb-4">Vencimento: <strong
+                                id="lblVencimento" class="text-on-surface">00/00/0000</strong></p>
+
+                        <div class="space-y-1.5 mt-4">
+                            <label
+                                class="block font-label text-[10px] uppercase tracking-[0.1em] font-bold text-primary ml-1">De
+                                qual empresa é esta conta? (Opcional)</label>
+                            <input id="inputEmpresa"
+                                class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all outline-none"
+                                placeholder="Ex: Enel, Vivo, Condomínio" type="text" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Primary CTA -->
+                <div class="mt-12">
+                    <button id="btnContinuar"
+                        class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-bold text-lg shadow-lg shadow-primary/10 hover:opacity-90 active:scale-[0.98] transition-all flex justify-center items-center gap-2">
+                        <span>Continuar</span>
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
                 </div>
             </div>
-
+            <!-- Contextual Tip -->
+            <div class="mt-8 px-4 flex items-start gap-4">
+                <div class="p-2 bg-secondary-container/30 rounded-lg">
+                    <span class="material-symbols-outlined text-secondary text-xl">verified_user</span>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Pagamento Seguro</h4>
+                    <p class="text-[11px] text-on-surface-variant leading-tight">Suas informações são criptografadas e
+                        processadas através de canais bancários certificados.</p>
+                </div>
+            </div>
         </div>
+    </main>
+    <!-- Footer Component from JSON -->
+    <footer class="flex flex-col items-center gap-2 pb-8 w-full bg-transparent">
+        <div class="flex gap-6 mb-2">
+            <a class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors"
+                href="#">Privacy</a>
+            <a class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors"
+                href="#">Terms</a>
+            <a class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors"
+                href="#">Help</a>
+        </div>
+        <p class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400">© 2024 Finanflex.
+            Secured Editorial Ledger.</p>
+    </footer>
 
-        <!-- Primary CTA -->
-        <div class="mt-12">
-            <button id="btnContinuar" class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-bold text-lg shadow-lg shadow-primary/10 hover:opacity-90 active:scale-[0.98] transition-all flex justify-center items-center gap-2">
-                <span>Continuar</span>
-                <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </button>
+    <!-- Scanner Modal Overlay -->
+    <div id="scannerWrapper"
+        class="hidden fixed inset-0 z-50 bg-black/80 flex flex-col items-center justify-center p-4">
+        <div class="bg-surface rounded-xl p-4 w-full max-w-md">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold text-primary font-headline">Escaneie o Boleto</h3>
+                <button onclick="fecharScanner()" class="text-outline hover:text-error transition"><span
+                        class="material-symbols-outlined">close</span></button>
+            </div>
+            <div id="reader-container" class="w-full overflow-hidden rounded-lg bg-black"></div>
+            <p class="text-xs text-center text-outline mt-3">Aponte a câmera para o código de barras do boleto.</p>
         </div>
     </div>
-<!-- Contextual Tip -->
-<div class="mt-8 px-4 flex items-start gap-4">
-<div class="p-2 bg-secondary-container/30 rounded-lg">
-<span class="material-symbols-outlined text-secondary text-xl">verified_user</span>
-</div>
-<div>
-<h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Pagamento Seguro</h4>
-<p class="text-[11px] text-on-surface-variant leading-tight">Suas informações são criptografadas e processadas através de canais bancários certificados.</p>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer Component from JSON -->
-<footer class="flex flex-col items-center gap-2 pb-8 w-full bg-transparent">
-<div class="flex gap-6 mb-2">
-<a class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors" href="#">Privacy</a>
-<a class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors" href="#">Terms</a>
-<a class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors" href="#">Help</a>
-</div>
-<p class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400">© 2024 Finanflex. Secured Editorial Ledger.</p>
-</footer>
 
-<!-- Scanner Modal Overlay -->
-<div id="scannerWrapper" class="hidden fixed inset-0 z-50 bg-black/80 flex flex-col items-center justify-center p-4">
-    <div class="bg-surface rounded-xl p-4 w-full max-w-md">
-        <div class="flex justify-between items-center mb-4">
-            <h3 class="font-bold text-primary font-headline">Escaneie o Boleto</h3>
-            <button onclick="fecharScanner()" class="text-outline hover:text-error transition"><span class="material-symbols-outlined">close</span></button>
-        </div>
-        <div id="reader-container" class="w-full overflow-hidden rounded-lg bg-black"></div>
-        <p class="text-xs text-center text-outline mt-3">Aponte a câmera para o código de barras do boleto.</p>
-    </div>
-</div>
+    <script>
+        // --- Lógica Matemática de Extração (Parser Gratuito) ---
+        function extrairDadosBoleto(codigo) {
+            // Limpa tudo que não for número (pontos e espaços)
+            const linhaLimpa = codigo.replace(/\D/g, '');
 
-<script>
-    // --- Lógica Matemática de Extração (Parser Gratuito) ---
-    function extrairDadosBoleto(codigo) {
-        // Limpa tudo que não for número (pontos e espaços)
-        const linhaLimpa = codigo.replace(/\D/g, '');
+            let resultado = {
+                valido: false,
+                tipo: 'DESCONHECIDO',
+                valorOriginal: 0,
+                dataVencimento: null,
+                linhaDigitavel: linhaLimpa
+            };
 
-        let resultado = {
-            valido: false,
-            tipo: 'DESCONHECIDO',
-            valorOriginal: 0,
-            dataVencimento: null,
-            linhaDigitavel: linhaLimpa
-        };
+            if (linhaLimpa.length < 44) return resultado; // Inválido
 
-        if (linhaLimpa.length < 44) return resultado; // Inválido
+            // REGRA 1: CONTAS DE CONSUMO (Começam com 8)
+            if (linhaLimpa[0] === '8') {
+                resultado.valido = true;
+                resultado.tipo = 'Consumo (Água, Luz, Internet)';
 
-        // REGRA 1: CONTAS DE CONSUMO (Começam com 8)
-        if (linhaLimpa[0] === '8') {
+                // O valor nas contas de consumo fica entre a pos 4 e 15
+                const valorConsumoStr = linhaLimpa.substring(4, 15);
+                resultado.valorOriginal = parseInt(valorConsumoStr, 10) / 100;
+
+                resultado.dataVencimento = 'Verificar no documento';
+                return resultado;
+            }
+
+            // REGRA 2: BOLETOS BANCÁRIOS
             resultado.valido = true;
-            resultado.tipo = 'Consumo (Água, Luz, Internet)';
-            
-            // O valor nas contas de consumo fica entre a pos 4 e 15
-            const valorConsumoStr = linhaLimpa.substring(4, 15);
-            resultado.valorOriginal = parseInt(valorConsumoStr, 10) / 100;
-            
-            resultado.dataVencimento = 'Verificar no documento'; 
+            resultado.tipo = 'Boleto Bancário';
+
+            // Se o usuário digitou a linha inteira (47)
+            function calcularDataVencimento(fatorVencimento) {
+                if (fatorVencimento > 0) {
+                    const dataBase = new Date('1997-10-07T12:00:00Z');
+                    dataBase.setDate(dataBase.getDate() + fatorVencimento);
+
+                    // Nova regra da Febraban (Fev/2025 em diante): O fator reseta a cada ~9000 dias.
+                    const hoje = new Date();
+                    while (dataBase.getFullYear() < hoje.getFullYear() - 5) {
+                        dataBase.setDate(dataBase.getDate() + 9000);
+                    }
+                    return dataBase.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+                }
+                return 'À vista / Contra Apresentação';
+            }
+
+            // Se o usuário digitou a linha inteira (47)
+            if (linhaLimpa.length === 47) {
+                const valorStr = linhaLimpa.substring(37, 47);
+                resultado.valorOriginal = parseInt(valorStr, 10) / 100;
+
+                const fatorVencimento = parseInt(linhaLimpa.substring(33, 37), 10);
+                resultado.dataVencimento = calcularDataVencimento(fatorVencimento);
+
+            } else if (linhaLimpa.length >= 44 && linhaLimpa.length < 47) {
+                // Se for do código de barras direto (44)
+                const valorStr = linhaLimpa.substring(9, 19);
+                resultado.valorOriginal = parseInt(valorStr, 10) / 100;
+
+                const fatorVencimento = parseInt(linhaLimpa.substring(5, 9), 10);
+                resultado.dataVencimento = calcularDataVencimento(fatorVencimento);
+            }
+
             return resultado;
         }
 
-        // REGRA 2: BOLETOS BANCÁRIOS
-        resultado.valido = true;
-        resultado.tipo = 'Boleto Bancário';
+        // --- Componente Front-end Scanner ---
+        let scanner = null;
 
-        // Se o usuário digitou a linha inteira (47)
-        function calcularDataVencimento(fatorVencimento) {
-            if (fatorVencimento > 0) {
-                const dataBase = new Date('1997-10-07T12:00:00Z');
-                dataBase.setDate(dataBase.getDate() + fatorVencimento);
-                
-                // Nova regra da Febraban (Fev/2025 em diante): O fator reseta a cada ~9000 dias.
-                const hoje = new Date();
-                while (dataBase.getFullYear() < hoje.getFullYear() - 5) {
-                    dataBase.setDate(dataBase.getDate() + 9000);
-                }
-                return dataBase.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+        function iniciarScannerBoleto() {
+            document.getElementById('scannerWrapper').classList.remove('hidden');
+
+            if (!scanner) {
+                scanner = new Html5QrcodeScanner("reader-container", {
+                    fps: 10,
+                    qrbox: { width: 300, height: 100 },
+                    formatsToSupport: [Html5QrcodeSupportedFormats.ITF]
+                });
             }
-            return 'À vista / Contra Apresentação';
+
+            scanner.render(onScanSuccess, onScanFailure);
+
+            function onScanSuccess(decodedText, decodedResult) {
+                console.log(`Código lido da câmera: ${decodedText}`);
+                scanner.clear();
+                document.getElementById('scannerWrapper').classList.add('hidden');
+
+                document.getElementById('barcode').value = decodedText;
+
+                const dadosBoleto = extrairDadosBoleto(decodedText);
+                preencherTelaDeSimulacao(dadosBoleto);
+            }
+
+            function onScanFailure(error) {
+                // Silencioso
+            }
         }
 
-        // Se o usuário digitou a linha inteira (47)
-        if (linhaLimpa.length === 47) {
-            const valorStr = linhaLimpa.substring(37, 47);
-            resultado.valorOriginal = parseInt(valorStr, 10) / 100;
-
-            const fatorVencimento = parseInt(linhaLimpa.substring(33, 37), 10);
-            resultado.dataVencimento = calcularDataVencimento(fatorVencimento);
-            
-        } else if (linhaLimpa.length >= 44 && linhaLimpa.length < 47) {
-            // Se for do código de barras direto (44)
-            const valorStr = linhaLimpa.substring(9, 19);
-            resultado.valorOriginal = parseInt(valorStr, 10) / 100;
-
-            const fatorVencimento = parseInt(linhaLimpa.substring(5, 9), 10);
-            resultado.dataVencimento = calcularDataVencimento(fatorVencimento);
-        }
-
-        return resultado;
-    }
-
-    // --- Componente Front-end Scanner ---
-    let scanner = null;
-
-    function iniciarScannerBoleto() {
-        document.getElementById('scannerWrapper').classList.remove('hidden');
-        
-        if (!scanner) {
-            scanner = new Html5QrcodeScanner("reader-container", { 
-                fps: 10, 
-                qrbox: { width: 300, height: 100 },
-                formatsToSupport: [ Html5QrcodeSupportedFormats.ITF ]
-            });
-        }
-
-        scanner.render(onScanSuccess, onScanFailure);
-
-        function onScanSuccess(decodedText, decodedResult) {
-            console.log(`Código lido da câmera: ${decodedText}`);
-            scanner.clear(); 
+        function fecharScanner() {
             document.getElementById('scannerWrapper').classList.add('hidden');
-            
-            document.getElementById('barcode').value = decodedText;
-            
-            const dadosBoleto = extrairDadosBoleto(decodedText);
-            preencherTelaDeSimulacao(dadosBoleto); 
+            if (scanner) {
+                scanner.clear();
+            }
         }
 
-        function onScanFailure(error) {
-            // Silencioso
-        }
-    }
+        // --- Integração UX ---
+        function preencherTelaDeSimulacao(dadosBoleto) {
+            const infoDiv = document.getElementById('boletoInfo');
 
-    function fecharScanner() {
-        document.getElementById('scannerWrapper').classList.add('hidden');
-        if (scanner) {
-            scanner.clear();
-        }
-    }
+            if (dadosBoleto.valido) {
+                infoDiv.classList.remove('hidden');
+                document.getElementById('lblTipo').innerText = dadosBoleto.tipo;
 
-    // --- Integração UX ---
-    function preencherTelaDeSimulacao(dadosBoleto) {
-        const infoDiv = document.getElementById('boletoInfo');
-        
-        if (dadosBoleto.valido) {
-            infoDiv.classList.remove('hidden');
-            document.getElementById('lblTipo').innerText = dadosBoleto.tipo;
-            
-            const formatter = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
-            document.getElementById('lblValor').innerText = formatter.format(dadosBoleto.valorOriginal);
-            
-            document.getElementById('lblVencimento').innerText = dadosBoleto.dataVencimento || 'N/A';
-        } else {
-            infoDiv.classList.add('hidden');
-        }
-    }
+                const formatter = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+                document.getElementById('lblValor').innerText = formatter.format(dadosBoleto.valorOriginal);
 
-    // Detecção automática na entrada manual
-    document.getElementById('barcode').addEventListener('input', (e) => {
-        const errorEl = document.getElementById('error15k');
-        if (errorEl) errorEl.classList.add('hidden');
-        
-        const value = e.target.value.replace(/\D/g, '');
-        if (value.length >= 44) {
-            const dados = extrairDadosBoleto(value);
-            if (dados.valido && dados.valorOriginal > 15000) {
-                if (errorEl) errorEl.classList.remove('hidden');
+                document.getElementById('lblVencimento').innerText = dadosBoleto.dataVencimento || 'N/A';
+            } else {
+                infoDiv.classList.add('hidden');
+            }
+        }
+
+        // Detecção automática na entrada manual
+        document.getElementById('barcode').addEventListener('input', (e) => {
+            const errorEl = document.getElementById('error15k');
+            if (errorEl) errorEl.classList.add('hidden');
+
+            const value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 44) {
+                const dados = extrairDadosBoleto(value);
+                if (dados.valido && dados.valorOriginal > 15000) {
+                    if (errorEl) errorEl.classList.remove('hidden');
+                    document.getElementById('boletoInfo').classList.add('hidden');
+                    return;
+                }
+                preencherTelaDeSimulacao(dados);
+            } else {
                 document.getElementById('boletoInfo').classList.add('hidden');
-                return;
             }
-            preencherTelaDeSimulacao(dados);
-        } else {
-            document.getElementById('boletoInfo').classList.add('hidden');
-        }
-    });
+        });
 
-    // Submissão
-    document.getElementById('btnContinuar').addEventListener('click', () => {
-        const errorEl = document.getElementById('error15k');
-        if (errorEl) errorEl.classList.add('hidden');
+        // Submissão
+        document.getElementById('btnContinuar').addEventListener('click', () => {
+            const errorEl = document.getElementById('error15k');
+            if (errorEl) errorEl.classList.add('hidden');
 
-        const barcode = document.getElementById('barcode').value;
-        const linhaLimpa = barcode.replace(/\D/g, '');
-        
-        if(linhaLimpa.length >= 44) {
-            const dados = extrairDadosBoleto(linhaLimpa);
-            
-            if (dados.valido && dados.valorOriginal > 15000) {
-                if (errorEl) errorEl.classList.remove('hidden');
-                return;
+            const barcode = document.getElementById('barcode').value;
+            const linhaLimpa = barcode.replace(/\D/g, '');
+
+            if (linhaLimpa.length >= 44) {
+                const dados = extrairDadosBoleto(linhaLimpa);
+
+                if (dados.valido && dados.valorOriginal > 15000) {
+                    if (errorEl) errorEl.classList.remove('hidden');
+                    return;
+                }
+
+                localStorage.setItem('finanflex_boleto', barcode);
+                localStorage.setItem('finanflex_valor', dados.valorOriginal || 0);
+
+                const empresa = document.getElementById('inputEmpresa').value.trim();
+                localStorage.setItem('finanflex_empresa', empresa || '');
+
+                window.location.href = '/cadastro.html';
+            } else {
+                alert('Por favor, insira uma linha digitável ou código de barras válido (mínimo 44 dígitos).');
             }
-            
-            localStorage.setItem('finanflex_boleto', barcode);
-            localStorage.setItem('finanflex_valor', dados.valorOriginal || 0);
-            
-            const empresa = document.getElementById('inputEmpresa').value.trim();
-            localStorage.setItem('finanflex_empresa', empresa || '');
-            
-            window.location.href = '/cadastro.html';
-        } else {
-            alert('Por favor, insira uma linha digitável ou código de barras válido (mínimo 44 dígitos).');
-        }
-    });
-</script>
-</body></html>
+        });
+    </script>
+</body>
+
+</html>
