@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Finanflex | Parcele seus boletos no Pix</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#b6c4ff",
+              "inverse-on-surface": "#f0f1f2",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#002113",
+              "secondary-fixed": "#6ffbbe",
+              "tertiary-container": "#6e2c00",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#90a8ff",
+              "tertiary": "#4b1c00",
+              "surface-tint": "#4059aa",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-tertiary-fixed": "#341100",
+              "tertiary-fixed-dim": "#ffb691",
+              "error-container": "#ffdad6",
+              "surface-bright": "#f8f9fa",
+              "surface-dim": "#d9dadb",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdbcb",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#444651",
+              "on-secondary-container": "#00714d",
+              "outline-variant": "#c5c5d3",
+              "primary": "#00236f",
+              "secondary": "#006c49",
+              "primary-container": "#1e3a8a",
+              "outline": "#757682",
+              "surface-container-highest": "#e1e3e4",
+              "on-primary-fixed": "#00164e",
+              "on-secondary-fixed-variant": "#005236",
+              "secondary-container": "#6cf8bb",
+              "on-tertiary-container": "#f39461",
+              "on-background": "#191c1d",
+              "surface-variant": "#e1e3e4",
+              "inverse-surface": "#2e3132",
+              "error": "#ba1a1a",
+              "secondary-fixed-dim": "#4edea3",
+              "on-tertiary-fixed-variant": "#773205",
+              "primary-fixed-dim": "#b6c4ff",
+              "surface-container-high": "#e7e8e9",
+              "background": "#f8f9fa",
+              "on-error-container": "#93000a",
+              "surface-container-low": "#f3f4f5",
+              "on-primary-fixed-variant": "#264191",
+              "surface-container": "#edeeef",
+              "primary-fixed": "#dce1ff",
+              "surface": "#f8f9fa"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .tonal-shift { background-color: #f3f4f5; }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+      }
+      .shadow-soft { box-shadow: 0 20px 40px rgba(25, 28, 29, 0.04); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-md">
+<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2"><img alt="Finanflex Logo" class="h-10 w-auto object-contain" src="/images/logo.png"/></div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-blue-900 font-medium hover:text-emerald-500 transition-colors" href="#como-funciona">Como Funciona</a>
+<a class="text-blue-900 font-medium hover:text-emerald-500 transition-colors" href="#vantagens">Vantagens</a>
+<a class="text-blue-900 font-medium hover:text-emerald-500 transition-colors" href="#duvidas">Dúvidas</a>
+<a href="/login.html" class="px-6 py-2 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-white transition-all scale-95 active:duration-150 inline-block text-center">
+                    Entrar
+                </a>
+</div>
+<!-- Mobile Menu Toggle (Simplified) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-surface py-16 lg:py-24">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="z-10 text-left">
+<span class="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wider uppercase mb-6">
+                        Rápido, Seguro e Sem Burocracia
+                    </span>
+<h1 class="text-4xl lg:text-6xl font-extrabold text-primary leading-tight tracking-tight mb-6 font-headline">
+                        Respire fundo. Nós parcelamos os seus boletos no Pix.
+                    </h1>
+<p class="text-lg lg:text-xl text-on-surface-variant leading-relaxed mb-10 max-w-lg">
+                        Água, luz, telefone ou compras. Parcele qualquer boleto em até 12x pagando a primeira parcela no Pix na mesma hora.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 mb-12">
+<a href="/captura.html" class="flex items-center justify-center gap-2 bg-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-on-secondary-fixed-variant transition-all shadow-soft group">
+                            PARCELE SEU BOLETO AGORA
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user">verified_user</span>
+                            Ambiente Seguro
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+<span class="material-symbols-outlined text-secondary" data-icon="lock">lock</span>
+                            Dados Protegidos
+                        </div>
+</div>
+</div>
+<div class="relative lg:h-[600px] flex items-center justify-center lg:justify-end">
+<!-- Geometric Background Element -->
+<div class="absolute -right-20 top-20 w-96 h-96 bg-secondary-container opacity-20 rounded-full blur-3xl"></div>
+<div class="relative z-10 w-full max-w-md">
+<div class="relative rounded-[3rem] p-4 bg-primary shadow-2xl overflow-hidden aspect-[9/19] border-[8px] border-primary-container">
+<img alt="Smartphone Mockup" class="w-full h-full object-cover rounded-[2rem]" data-alt="Close-up of a high-tech smartphone screen displaying a successful Pix payment confirmation with a large green checkmark icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL4CcipjcYw1Cl3xL1ibkQ_l4zh-4EEiiD-aINK2EdrHHXj9SthJUPG0IdUuhdLyc_JgLQamu3PxnXI2tc64Mc8ypR-9bXigYoVRdAKMFJzYIzmYWuLkDZ6C-uBYHe5LqT6ngtB9VAPX4zJQ1m4EurHMfmrRhffZjsIc9qZT8cmVxQi6jEVtwNAz3sAOuw6b6-obKIluX0K_qxAvB2dSzhluIWET1keZW3C_T3auoY7X9QtXuAIuMQRMvyc60oGFj_awdfDdwOEtca"/>
+<div class="absolute inset-0 flex flex-col items-center justify-end p-8 bg-gradient-to-t from-primary/80 to-transparent">
+<div class="glass-card p-6 rounded-2xl w-full text-center">
+<span class="material-symbols-outlined text-secondary text-5xl mb-2" data-icon="check_circle" data-weight="fill">check_circle</span>
+<p class="text-primary font-bold text-lg leading-tight">Boleto Pago com Sucesso!</p>
+<p class="text-on-surface-variant text-sm mt-1">Primeira parcela via Pix confirmada</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Como Funciona Section -->
+<section class="bg-surface-container-lowest py-24" id="como-funciona">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-4">
+<h2 class="text-3xl lg:text-4xl font-extrabold text-primary font-headline">Como funciona a mágica?</h2>
+<p class="text-on-surface-variant max-w-sm">Três passos simples para você sair do aperto e manter suas contas em dia sem estresse.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Step 1 -->
+<div class="p-8 rounded-3xl bg-surface-container-low hover:bg-surface-container transition-colors group">
+<div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-8 shadow-soft group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="barcode_scanner">barcode_scanner</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-4">1. Insira o Boleto</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Basta escanear o código de barras ou colar a linha digitável do seu boleto de consumo ou compras.
+                        </p>
+</div>
+<!-- Step 2 -->
+<div class="p-8 rounded-3xl bg-surface-container-low hover:bg-surface-container transition-colors group">
+<div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-8 shadow-soft group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="calculate">calculate</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-4">2. Escolha as Parcelas</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Simule e escolha em quantas vezes deseja pagar, de 2x até 12x, com taxas transparentes que cabem no bolso.
+                        </p>
+</div>
+<!-- Step 3 -->
+<div class="p-8 rounded-3xl bg-surface-container-low hover:bg-surface-container transition-colors group">
+<div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-8 shadow-soft group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="qr_code_2">qr_code_2</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-4">3. Pague no Pix</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Pague a primeira parcela via Pix e pronto! Seu boleto é liquidado por nós instantaneamente.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Vantagens Section -->
+<section class="bg-surface-container-low py-24" id="vantagens">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-20">
+<h2 class="text-3xl lg:text-5xl font-extrabold text-primary font-headline mb-6">Por que escolher a nossa solução?</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl mx-auto leading-relaxed">
+                        Esqueça a burocracia bancária tradicional. Criamos um sistema pensado na sua liberdade financeira.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Advantage 1 -->
+<div class="bg-surface-container-lowest p-10 rounded-3xl shadow-soft border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="credit_card_off" data-weight="fill">credit_card_off</span>
+<h4 class="text-xl font-bold text-primary mb-4">Sem limite de cartão</h4>
+<p class="text-on-surface-variant">Não precisa ter limite no cartão de crédito. Sua análise é feita na hora direto pelo CPF.</p>
+</div>
+<!-- Advantage 2 -->
+<div class="bg-surface-container-lowest p-10 rounded-3xl shadow-soft border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="bolt" data-weight="fill">bolt</span>
+<h4 class="text-xl font-bold text-primary mb-4">Aprovação Imediata</h4>
+<p class="text-on-surface-variant">Análise de crédito inteligente que responde em segundos. Sem filas e sem esperas.</p>
+</div>
+<!-- Advantage 3 -->
+<div class="bg-surface-container-lowest p-10 rounded-3xl shadow-soft border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="assignment_turned_in" data-weight="fill">assignment_turned_in</span>
+<h4 class="text-xl font-bold text-primary mb-4">Zero Burocracia</h4>
+<p class="text-on-surface-variant">Processo 100% digital. Nada de papelada ou assinaturas físicas. Tudo pelo seu celular.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-8">
+<div class="max-w-7xl mx-auto rounded-[3rem] bg-primary p-12 lg:p-24 relative overflow-hidden text-center lg:text-left">
+<!-- Abstract background pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg class="w-full h-full" viewbox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+<circle cx="800" cy="400" fill="white" r="300"></circle>
+<circle cx="100" cy="100" fill="white" r="150"></circle>
+</svg>
+</div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+<div>
+<h2 class="text-3xl lg:text-5xl font-extrabold text-white font-headline leading-tight mb-6">
+                            Pronto para ficar em dia com suas contas?
+                        </h2>
+<p class="text-primary-fixed-dim text-lg lg:text-xl">
+                            Junte-se a milhares de brasileiros que já facilitaram sua vida financeira com o Finanflex.
+                        </p>
+</div>
+<div class="flex justify-center lg:justify-end">
+<a href="/captura.html" class="bg-secondary text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-on-secondary-fixed-variant transition-all shadow-xl hover:scale-105 active:scale-95 inline-block text-center">
+                            Começar a Parcelar
+                        </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-950 py-16">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<!-- Brand Col -->
+<div class="col-span-1 lg:col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-emerald-400 text-3xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-2xl font-bold text-emerald-400 tracking-tighter font-headline">Finanflex</span>
+</div>
+<p class="text-slate-400 max-w-sm mb-6 leading-relaxed">
+                        A solução definitiva para quem precisa de fôlego financeiro. Parcelamento inteligente, rápido e 100% digital.
+                    </p>
+</div>
+<!-- Links Col 1 -->
+<div>
+<h5 class="text-white font-bold mb-6">Empresa</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-emerald-400 transition-colors" href="#">Como Funciona</a></li>
+<li><a class="text-slate-400 hover:text-emerald-400 transition-colors" href="#">Vantagens</a></li>
+<li><a class="text-slate-400 hover:text-emerald-400 transition-colors" href="#">Fale Conosco</a></li>
+</ul>
+</div>
+<!-- Links Col 2 -->
+<div>
+<h5 class="text-white font-bold mb-6">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-emerald-400 transition-colors" href="#">Termos de Uso</a></li>
+<li><a class="text-slate-400 hover:text-emerald-400 transition-colors" href="#">Privacidade</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-12">
+<p class="text-slate-500 text-sm mb-4">
+                    © 2024 Finanflex. Todos os direitos reservados. CNPJ: 00.000.000/0001-00.
+                </p>
+<p class="text-slate-600 text-[11px] leading-relaxed max-w-4xl">
+                    Finanflex é uma plataforma de serviços, não uma instituição financeira. A concessão de crédito está sujeita a análise e aprovação. O custo efetivo total (CET) será informado antes da contratação da operação de crédito. O parcelamento de boletos é uma operação de crédito pessoal garantida ou não. Juros e taxas aplicáveis conforme perfil do cliente.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

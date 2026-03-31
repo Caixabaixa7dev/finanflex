@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesouraria | Finanflex Backoffice</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background-color: #f1f5f9; padding: 40px 20px;}
+        #loginView { display: flex; justify-content: center; align-items: center; min-height: 80vh; }
+        .login-card { max-width: 400px; width: 100%; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--brand-dark); font-size: 0.875rem;}
+        .form-group input { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; outline: none; }
+    </style>
+</head>
+<body>
+
+    <!-- LOGIN -->
+    <div id="loginView" class="container">
+        <div class="card login-card">
+            <h2 class="card-title text-center">Login da Tesouraria</h2>
+            <div class="form-group">
+                <label>Usuário</label>
+                <input type="text" id="username" placeholder="Ex: Sistema" value="Sistema">
+            </div>
+            <div class="form-group">
+                <label>Senha</label>
+                <input type="password" id="password" placeholder="••••••••" value="Caixabaixa7">
+            </div>
+            <button class="btn btn-primary" onclick="login()">Entrar no Painel</button>
+            <p id="loginError" style="color:var(--alert-color); font-size:14px; margin-top:10px; display:none"></p>
+        </div>
+    </div>
+
+    <!-- PANEL -->
+    <div id="panelView" class="admin-container hidden">
+        <div class="admin-header">
+            <h1>Liberação de Contratos</h1>
+            <button class="btn btn-outline btn-sm" onclick="logout()" style="width: auto;">Sair</button>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Contrato</th>
+                        <th>Status Pix</th>
+                        <th>Linha Digitável (Boleto)</th>
+                        <th>Ações Tesouraria</th>
+                    </tr>
+                </thead>
+                <tbody id="contractsTableBody">
+                    <!-- Dynamic rows injected by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+:root {
+    --primary-color: #006c49;
+    --primary-hover: #005236;
+    --bg-color: #F8F9FA;
+    --text-color: #191c1d;
+    --text-muted: #757682;
+    --brand-dark: #00236f;
+    --alert-color: #ba1a1a;
+    --border-color: #c5c5d3;
+    --card-bg: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.5; padding: 20px; display: flex; justify-content: center; min-height: 100vh; }
+
+.container { max-width: 480px; width: 100%; display: flex; flex-direction: column; gap: 20px; }
+
+.card { background: var(--card-bg); border-radius: 12px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); border: 1px solid var(--border-color); }
+.card-title { font-size: 1.125rem; font-weight: 600; color: var(--brand-dark); margin-bottom: 16px; }
+
+/* Bill Summary */
+.bill-details { display: flex; justify-content: space-between; align-items: center; font-size: 1.25rem; color: var(--brand-dark); border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 12px;}
+.original-value { font-size: 1.5rem; color: var(--brand-dark); }
+.bill-desc { font-size: 0.875rem; color: var(--text-muted); }
+
+/* Installments */
+.installment-option { display: flex; align-items: center; padding: 16px; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s ease; }
+.installment-option:hover { border-color: var(--primary-color); background: #f0fdf4; }
+.installment-option input[type="radio"] { margin-right: 16px; accent-color: var(--primary-color); width: 18px; height: 18px; }
+.installment-info { display: flex; flex-direction: column; }
+.installment-info strong { color: var(--brand-dark); font-size: 1rem; }
+.installment-info span { color: var(--text-muted); font-size: 0.875rem; }
+.installment-option input:checked + .installment-info strong { color: var(--primary-color); }
+.installment-option:has(input:checked) { border-color: var(--primary-color); background: #f0fdf4; }
+
+/* Checkbox */
+.legal-consent { padding: 8px 4px; }
+.checkbox-container { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-size: 0.875rem; color: var(--text-muted); }
+.checkbox-container input { margin-top: 4px; accent-color: var(--primary-color); width: 16px; height: 16px; }
+.checkbox-container a { color: var(--brand-dark); font-weight: 500; text-decoration: none; }
+.checkbox-container a:hover { text-decoration: underline; }
+
+/* Buttons */
+.btn { width: 100%; padding: 16px; border-radius: 8px; border: none; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; transition: background 0.2s ease; }
+.btn-primary { background-color: var(--primary-color); color: white; }
+.btn-primary:hover { background-color: var(--primary-hover); }
+
+/* Modal */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); display: flex; justify-content: center; align-items: end; z-index: 1000; padding: 20px; transition: opacity 0.3s ease; }
+@media (min-width: 640px) { .modal-overlay { align-items: center; } }
+.modal { background: var(--card-bg); width: 100%; max-width: 480px; border-radius: 16px 16px 0 0; padding: 32px 24px; position: relative; display: flex; flex-direction: column; gap: 20px; animation: slideUp 0.3s ease forwards; box-shadow: 0 -10px 40px rgba(0,0,0,0.1); }
+@media (min-width: 640px) { .modal { border-radius: 16px; animation: scaleUp 0.3s ease forwards; } }
+.hidden { display: none !important; }
+
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes scaleUp { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.5rem; color: var(--text-muted); cursor: pointer; }
+.modal-title { font-size: 1.25rem; font-weight: 600; color: var(--brand-dark); text-align: center; }
+.modal-subtitle { font-size: 0.875rem; color: var(--text-muted); text-align: center; }
+
+.qr-code-container { display: flex; justify-content: center; margin: 10px 0; border: 1px dashed var(--border-color); padding: 16px; border-radius: 12px; }
+.pix-code-container input { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-family: monospace; font-size: 0.875rem; color: var(--text-muted); outline: none; background: #f9fafb; }
+
+/* Loading State for Smart Polling */
+.loading-spinner-container { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 16px; }
+.spinner { width: 30px; height: 30px; border: 3px solid #E5E7EB; border-top-color: var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-spinner-container span { color: var(--text-muted); font-size: 0.875rem; font-weight: 500; }
+
+.success-message { color: var(--primary-color); font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; font-size: 1rem; }
+.success-message svg { color: var(--primary-color); }
+
+/* Admin Grid/Kanban Table */
+.admin-container { max-width: 1000px; width: 100%; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.admin-header h1 { color: var(--brand-dark); }
+
+.table-wrapper { overflow-x: auto; background: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+table { width: 100%; border-collapse: collapse;text-align: left; }
+th, td { padding: 16px; border-bottom: 1px solid var(--border-color); }
+th { background: #f9fafb; font-weight: 600; color: var(--text-muted); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+td { color: var(--brand-dark); font-size: 0.875rem; }
+.badge { padding: 4px 8px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+.badge-success { background: #d1fae5; color: #065f46; }
+
+.btn-sm { padding: 8px 12px; font-size: 0.875rem; border-radius: 6px; }
+.btn-outline { background: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); }
+.btn-outline:hover { background: #f0fdf4; }

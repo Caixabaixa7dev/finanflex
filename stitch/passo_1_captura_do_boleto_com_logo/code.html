@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Finanflex | Captura do Boleto</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#6e2c00",
+                        "secondary": "#006c49",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "surface-container": "#edeeef",
+                        "primary-fixed": "#dce1ff",
+                        "primary": "#00236f",
+                        "on-tertiary-container": "#f39461",
+                        "on-tertiary-fixed": "#341100",
+                        "on-primary-fixed": "#00164e",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#00714d",
+                        "on-primary-fixed-variant": "#264191",
+                        "surface-variant": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "primary-container": "#1e3a8a",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcb",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "background": "#f8f9fa",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-container": "#90a8ff",
+                        "tertiary": "#4b1c00",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "inverse-surface": "#2e3132",
+                        "outline-variant": "#c5c5d3",
+                        "on-surface-variant": "#444651",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "secondary-container": "#6cf8bb",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-surface": "#191c1d",
+                        "outline": "#757682",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b6c4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#773205",
+                        "surface-tint": "#4059aa",
+                        "on-background": "#191c1d"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- Top Navigation Suppression: Not rendered for transactional/onboarding screen per rules -->
+<!-- Minimal Header -->
+<header class="w-full py-8 px-6 flex justify-center items-center">
+<div class="flex items-center gap-2"><img alt="Finanflex Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uh3UGypfevc5k64Cu0EhZT2Mfw0r0pDbkwrY55vQlI-3b03WHKThy_B2cuRQEzqHR0ts4MKi7GM123cZ7jQIsqOZSoYwhsuMzUxbalkOPE_xkcibJyzwd3Q0KlGeStUjwZ8NQ3RY9Sb6HrwHFe78dUNQGn3vquv00_ggAoRNdOsj87XRPvWHvXN1jDLIzDF1OktOLhaKnT9hc6ntMUgFPOKo9u1gDY3lcJUuhpp5jSnBNN7URPkwudwicI-19EgHDkL5S1zOB_ZO0g"/></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-start justify-center px-4 pt-4 pb-20">
+<div class="w-full max-w-[600px] bg-surface-container-low rounded-xl p-0.5">
+<!-- Elevated Content Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(25,28,29,0.04)]">
+<!-- Progress Indicator -->
+<div class="mb-10">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] uppercase tracking-[0.05em] font-bold text-outline">Passo 1 de 2</span>
+<span class="text-[10px] uppercase tracking-[0.05em] font-bold text-primary">Início</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full w-1/2 bg-primary-container rounded-full"></div>
+</div>
+</div>
+<!-- Headline & Intro -->
+<div class="mb-10 text-center">
+<h1 class="text-2xl md:text-3xl font-extrabold text-primary tracking-tight mb-4">Qual boleto vamos parcelar hoje?</h1>
+<p class="text-on-surface-variant leading-relaxed font-medium">Cole a linha digitável ou escaneie o código de barras.</p>
+</div>
+<!-- Form Section -->
+<div class="space-y-8">
+<div class="relative">
+<label class="absolute left-4 bg-surface-container-lowest px-1 text-[10px] font-bold uppercase tracking-wider text-outline -top-4" for="barcode">Linha Digitável</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline">barcode</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-high border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all text-on-surface font-medium placeholder:text-outline/50" id="barcode" name="barcode" placeholder="00000.00000 00000.000000..." type="text"/>
+</div>
+</div>
+<!-- Divider -->
+<div class="relative flex items-center py-2">
+<div class="flex-grow border-t border-outline-variant/30"></div>
+<span class="flex-shrink mx-4 text-[10px] font-black text-outline tracking-widest">OU</span>
+<div class="flex-grow border-t border-outline-variant/30"></div>
+</div>
+<!-- Camera Action -->
+<button class="w-full flex items-center justify-center gap-3 py-4 px-6 border-2 border-outline-variant/20 rounded-full text-primary font-bold hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">photo_camera</span>
+<span>Escanear com a Câmera</span>
+</button>
+</div>
+<!-- Primary CTA -->
+<div class="mt-12">
+<button class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-bold text-lg shadow-lg shadow-primary/10 hover:opacity-90 active:scale-[0.98] transition-all flex justify-center items-center gap-2">
+<span>Continuar</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Contextual Tip -->
+<div class="mt-8 px-4 flex items-start gap-4">
+<div class="p-2 bg-secondary-container/30 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-xl">verified_user</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Pagamento Seguro</h4>
+<p class="text-[11px] text-on-surface-variant leading-tight">Suas informações são criptografadas e processadas através de canais bancários certificados.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Component from JSON -->
+<footer class="flex flex-col items-center gap-2 pb-8 w-full bg-transparent">
+<div class="flex gap-6 mb-2">
+<a class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors" href="#">Privacy</a>
+<a class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors" href="#">Terms</a>
+<a class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400 hover:text-[#1E3A8A] transition-colors" href="#">Help</a>
+</div>
+<p class="font-manrope text-[10px] uppercase tracking-[0.05em] font-medium text-gray-400">© 2024 Finanflex. Secured Editorial Ledger.</p>
+</footer>
+</body></html>
