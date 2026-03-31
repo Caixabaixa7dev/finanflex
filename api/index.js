@@ -3,8 +3,8 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 
-const apiRoutes = require('./routes/api');
-const adminRoutes = require('./routes/admin');
+const apiRoutes = require('../src/routes/api');
+const adminRoutes = require('../src/routes/admin');
 
 const app = express();
 
@@ -26,6 +26,12 @@ app.get('/admin', (req, res) => {
 
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+// Adicionando um log de erro global para ajudar no debug do Vercel
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Erro Interno no Servidor', detail: err.message });
 });
 
 const PORT = process.env.PORT || 3000;
